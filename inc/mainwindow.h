@@ -18,13 +18,17 @@ public:
     explicit MainWindow(QWidget *parent = nullptr, Dialog *d = nullptr);
     ~MainWindow();
 
+public slots:
+    void on_dialog_close(int status);
+
 private:
     Ui::MainWindow *ui;
     Dialog *dialog;
+    void setupConnects();
+    void closeEvent(QCloseEvent *event);
 
 private slots:
     void on_toggleSecondWindow_clicked();
-    void on_dialog_close(int status);
 };
 
 #endif // MAINWINDOW_H

@@ -22,18 +22,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 CONFIG += c++11
 
+INCLUDEPATH += $$PWD/inc
+
 SOURCES += \
-        main.cpp \
-        mainwindow.cpp \
-    dialog.cpp
+        src/main.cpp \
+        src/mainwindow.cpp \
+        src/dialog.cpp
 
 HEADERS += \
-        mainwindow.h \
-    dialog.h
+        inc/mainwindow.h \
+        inc/dialog.h
 
 FORMS += \
-        mainwindow.ui \
-    dialog.ui
+        ui/mainwindow.ui \
+        ui/dialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
