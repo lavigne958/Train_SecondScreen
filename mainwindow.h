@@ -24,6 +24,7 @@ private:
 
 private slots:
     void on_toggleSecondWindow_clicked();
+    void on_dialog_close(int status);
 };
 
 #endif // MAINWINDOW_H

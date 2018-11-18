@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent):
   dialog(new Dialog(this))
 {
     ui->setupUi(this);
+    connect(this->dialog, SIGNAL(finished(int)), this, SLOT(on_dialog_close(int)));
 }
 MainWindow::MainWindow(QWidget *parent, Dialog *d) :
     QMainWindow(parent),
@@ -20,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent, Dialog *d) :
     dialog(d)
 {
     ui->setupUi(this);
+    connect(this->dialog, SIGNAL(finished(int)), this, SLOT(on_dialog_close(int)));
 }
 
 MainWindow::~MainWindow()
@@ -46,4 +48,11 @@ void MainWindow::on_toggleSecondWindow_clicked()
         this->dialog->hide();
         this->ui->toggleSecondWindow->setText(QString("Activate"));
     }
+}
+
+void MainWindow::on_dialog_close(int status)
+{
+    qDebug() << "dialog closed with status: " << status;
+
+    this->ui->toggleSecondWindow->setText("Activate");
 }
